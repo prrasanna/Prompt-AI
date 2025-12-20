@@ -3,7 +3,7 @@ import { CosmicBackground } from "@/components/CosmicBackground";
 import { ModeCard } from "@/components/ModeCard";
 import { PromptOutput } from "@/components/PromptOutput";
 import { useGeneratePrompt } from "@/hooks/use-prompts";
-import { GraduationCap, BookOpen, Code, Briefcase, Wand2, Sparkles, Filter } from "lucide-react";
+import { GraduationCap, BookOpen, Code, Briefcase, Wand2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
@@ -11,11 +11,9 @@ import { useToast } from "@/hooks/use-toast";
 import { Footer } from "@/components/Footer";
 
 type Mode = "study" | "coding" | "career";
-type Category = "all" | "general" | "creative" | "technical";
 
 export default function Home() {
   const [mode, setMode] = useState<Mode>("study");
-  const [category, setCategory] = useState<Category>("all");
   const [input, setInput] = useState("");
   const [generatedOutput, setGeneratedOutput] = useState("");
   const { mutate, isPending } = useGeneratePrompt();
@@ -74,37 +72,6 @@ export default function Home() {
           </div>
         </div>
       </header>
-
-      {/* Category Filter */}
-      <div className="sticky top-16 z-40 border-b border-white/5 bg-background/50 backdrop-blur-md">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center gap-3 flex-wrap">
-            <Filter className="w-4 h-4 text-primary/60" />
-            <div className="flex gap-2 flex-wrap">
-              <CategoryButton
-                label="All Categories"
-                active={category === "all"}
-                onClick={() => setCategory("all")}
-              />
-              <CategoryButton
-                label="General Purpose"
-                active={category === "general"}
-                onClick={() => setCategory("general")}
-              />
-              <CategoryButton
-                label="Creative Writing"
-                active={category === "creative"}
-                onClick={() => setCategory("creative")}
-              />
-              <CategoryButton
-                label="Coding/Technical"
-                active={category === "technical"}
-                onClick={() => setCategory("technical")}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
 
       <main className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 space-y-4">
@@ -209,28 +176,5 @@ export default function Home() {
 
       <Footer />
     </div>
-  );
-}
-
-function CategoryButton({
-  label,
-  active,
-  onClick,
-}: {
-  label: string;
-  active: boolean;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      onClick={onClick}
-      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-        active
-          ? "bg-primary/20 text-primary border border-primary/30"
-          : "bg-white/5 text-white/60 border border-white/10 hover:bg-white/10"
-      }`}
-    >
-      {label}
-    </button>
   );
 }
