@@ -1,18 +1,26 @@
-import { sql } from "drizzle-orm";
-import { pgTable, text, varchar } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, timestamp, jsonb } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const users = pgTable("users", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
+export const promptLogs = pgTable("prompt_logs", {
+  id: serial("id").primaryKey(),
+  mode: text("mode").notNull(), // 'study', 'coding', 'career'
+  input: text("input").notNull(),
+  output: text("output").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
 });
 
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
-});
+export const insertPromptLogSchema = createInsertSchema(promptLogs).omit({ id: true, createdAt: true });
+export type InsertPromptLog = z.infer<typeof insertPromptLogSchema>;
+export type PromptLog = typeof promptLogs.$inferSelect;
 
-export type InsertUser = z.infer<typeof insertUserSchema>;
-export type User = typeof users.$inferSelect;
+export const generatePromptSchema = z.object({
+  mode: z.enum(["study", "coding", "career"]),
+  userInput: z.string().min(1, "Please enter an idea"),
+});
+export type GeneratePromptRequest = z.infer<typeof generatePromptSchema>;
+
+export const generatePromptResponseSchema = z.object({
+  output: z.string(),
+});
+export type GeneratePromptResponse = z.infer<typeof generatePromptResponseSchema>;
