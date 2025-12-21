@@ -42,7 +42,7 @@ export default function Contact() {
               <GraduationCap className="w-6 h-6 text-primary" />
             </div>
             <span className="text-xl font-bold font-display tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60">
-              StudentPrompt AI
+              Prompt AI
             </span>
           </Link>
           <div className="text-sm font-medium text-white/40 hidden sm:block">

@@ -17,7 +17,7 @@ export default function AboutUs() {
               <GraduationCap className="w-6 h-6 text-primary" />
             </div>
             <span className="text-xl font-bold font-display tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60">
-              StudentPrompt AI
+              Prompt AI
             </span>
           </Link>
           <div className="text-sm font-medium text-white/40 hidden sm:block">
@@ -34,7 +34,7 @@ export default function AboutUs() {
           className="space-y-12"
         >
           <div className="text-center space-y-4">
-            <h1 className="text-5xl font-bold font-display">About StudentPrompt AI</h1>
+            <h1 className="text-5xl font-bold font-display">About Prompt AI</h1>
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
               Empowering students with AI-driven prompt engineering for academic and career success.
             </p>
