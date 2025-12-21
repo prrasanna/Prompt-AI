@@ -64,11 +64,8 @@ export default function Home() {
               <GraduationCap className="w-6 h-6 text-primary" />
             </div>
             <span className="text-xl font-bold font-display tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60">
-              StudentPrompt AI
+              Prompt AI
             </span>
-          </div>
-          <div className="text-sm font-medium text-white/40 hidden sm:block">
-            v1.0.0
           </div>
         </div>
       </header>

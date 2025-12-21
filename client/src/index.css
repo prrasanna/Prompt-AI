@@ -97,9 +97,10 @@
   position: absolute;
   background: white;
   border-radius: 50%;
-  opacity: Math.random();
+  opacity: 0.5; /* fixed value between 0 and 1 */
   animation: twinkle var(--duration) ease-in-out infinite;
 }
+
 
 @keyframes twinkle {
   0%, 100% { opacity: 0.2; transform: scale(0.8); }
