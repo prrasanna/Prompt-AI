@@ -1,7 +1,10 @@
+[Preview Images.pdf](https://github.com/user-attachments/files/24284082/Preview.Images.pdf)
+
 *Prompt AI* - AI Based Prompt Optimization 
 
 **Prompt AI** is an intelligent web-based tool designed to enhance and optimize user prompts for AI systems. It helps users generate well-structured, clear, and effective prompts in **Study Mode, Coding Mode, and Career Mode**, improving AI response quality for students, developers, and professionals.
-#HackIndia2026 #Web3 #AI #Hackathon #BuildInPublic and tag HackIndia where applicable.
+#HackIndia2026 #Web3 #AI #Hackathon #BuildInPublic
+@hackindia
 ---
 
  *Features* 
