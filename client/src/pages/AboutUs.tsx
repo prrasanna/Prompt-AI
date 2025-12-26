@@ -20,9 +20,6 @@ export default function AboutUs() {
               Prompt AI
             </span>
           </Link>
-          <div className="text-sm font-medium text-white/40 hidden sm:block">
-            v1.0.0
-          </div>
         </div>
       </header>
 
